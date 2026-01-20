@@ -1,8 +1,8 @@
 const Portfolio = (function () {
  const cloud = document.getElementById("cloud");
   if (cloud) {
-    const words1 = ["html","css","javascript","python","C#","skills","java","Digital Artist"];
-    const words2 = ["ADHD","Locked in","Caveman","Krazy","Cooked"];
+    const words1 = ["HTML","CSS","JS","PYTHON","C#","java","Digital Artist"];
+    const words2 = ["Curious","Focused","Persistent","Creative","Adaptive"];
 
     const radius1 = 150;
     const radius2X = 150;
@@ -68,10 +68,9 @@ const Portfolio = (function () {
   function typeAnimation() {
     Typed.new("#writing-text", {
       strings: [
-        "I am a BSIT student at STI, currently enrolled as a fourth-year student.",
-        "I am highly motivated to learn and explore new technologies through hands-on",
-        "Trial-and-error coding, with a strong passion for developing practical and creative solutions",
-        "i love doing trial and errors.",
+        "BSIT student passionate about web development and UI/UX.",
+        "Highly motivated to learn and explore new technologies through hands-on, trial-and-error coding.",
+        "I enjoy building practical and creative solutions through experimentation.",
       ],
       // Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
       stringsElement: null,

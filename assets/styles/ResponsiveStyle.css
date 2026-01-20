@@ -1,10 +1,27 @@
-/* Navigation Bar Styles */
+/* ======================
+   GLOBAL / BASE
+====================== */
+
+/* Add top padding to body content to avoid overlap with fixed navbar */
+body {
+    padding-top: 60px; /* adjust based on nav height */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======================
+   TOP NAV WRAPPER
+====================== */
+
 .top-navigation {
     background-color: #061E29; /* dark background */
     position: fixed;         /* stay on top when scrolling */
     top: 0;
     width: 100%;
     z-index: 9999;
+    padding: 1px 0px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -36,11 +53,131 @@
     border-bottom: 2px solid #ff6f61;
 }
 
-/* Add top padding to body content to avoid overlap with fixed navbar */
-body {
-    padding-top: 60px; /* adjust based on nav height */
+/* ======================
+   NAV INNER
+====================== */
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* desktop default */
+  padding: 0 10px;
+  min-height: 60px;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ======================
+   MAIN NAV (DESKTOP)
+====================== */
+
+.nav-main {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-main li a {
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 17px 0;
+  display: block;
+  font-family: 'Lato', sans-serif;
+}
+
+.nav-main li a:hover,
+.nav-main li a:focus {
+  color: #ff6f61;
+  border-bottom: 2px solid #ff6f61;
+}
+
+/* ======================
+   MORE BUTTON (HIDDEN DESKTOP)
+====================== */
+
+.nav-more {
+  display: none;           /* hidden on desktop */
+  position: relative;
+  margin-left: auto;      /* lock right when active */
+}
+
+.more-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+/* ======================
+   DROPDOWN MENU
+====================== */
+
+.more-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 210px;
+  background: #061E29;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.more-menu li a {
+  padding: 14px 18px;
+  font-size: 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.more-menu li a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ======================
+   MOBILE (PORTRAIT)
+====================== */
+
+@media (max-width: 768px) {
+
+  .nav-inner {
+    justify-content: space-between; /* spread items */
+  }
+
+  /* Show only first 2 items */
+  .nav-main li {
+    display: none;
+  }
+
+  .nav-main li:nth-child(-n+2) {
+    display: block;
+  }
+
+  /* Enable More menu */
+  .nav-more {
+    display: block;
+  }
+
+  /* Disable hover borders on touch */
+  .nav-main li a:hover {
+    border-bottom: none;
+  }
+}
+
+/* ======================
+   TOUCH DEVICES (NO HOVER)
+====================== */
+
+@media (hover: none) {
+  a:hover {
+    border-bottom: none !important;
+  }
 }
