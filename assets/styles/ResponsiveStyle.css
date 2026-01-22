@@ -181,3 +181,35 @@ html {
     border-bottom: none !important;
   }
 }
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .nav-main li a {
+    font-size: 20px; /* smaller text so it fits */
+  }
+
+  .nav-inner {
+    justify-content: space-between;
+  }
+}
+
+/* ======================
+   TABLET HERO FIX (iPad Mini / Air)
+====================== */
+
+@media (max-width: 1024px) {
+
+  .hero-section {
+    padding-top: 120px; /* reduce top spacing */
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 32px; /* smaller heading */
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

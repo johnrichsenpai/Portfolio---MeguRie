@@ -2,11 +2,17 @@
 
 ********** Global Styles*******
 
-body, html {
-    background-color: transparent; /* or just remove this */
-    margin: 0;
-    padding: 0;
-    height: 100%;
+html {
+    background-color: #010101 /* or just remove this */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #010101; /* IMPORTANT */
+  min-height: 100dvh;
+  overscroll-behavior-y: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,7 +21,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wrapper {
-		background: #061E29;;
+    background: #061E29;
+    min-height: 100dvh;
 }
 
 .img-circle {
@@ -1165,7 +1172,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #pdfFrame {
-  width: 100vw;        /* nearly full width */
+  width: 100%;        /* nearly full width */
   height: 100vh;       /* leaves room for close button */
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0,0,0,0.9);
@@ -1406,6 +1413,10 @@ body.mobile {
   overflow-x: hidden;
 }
 
+html.mobile {
+  overflow-x: hidden;
+}
+
 /* ----- SECTION FIXES ----- */
 body.mobile section,
 body.mobile #about,
@@ -1515,49 +1526,75 @@ body.mobile #footer {
   text-align: center;
 }
 
+/* =========================
+   MOBILE HERO FIX (DO NOT TOUCH DESKTOP)
+========================= */
+@media (max-width: 768px) {
 
-/* ===== DEFAULT = DESKTOP ===== */
-/* Desktop, laptops, tablets in landscape */
+  /* Make hero section flexible instead of fixed height */
+  #about {
+    padding-top: 6rem !important;
+    padding-bottom: 2rem !important;
+    height: auto !important;
+    min-height: 100vh !important; /* full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* push button to bottom */
+  }
 
-body {
-  font-size: 16px;
+  #about h2 {
+    font-size: 2.2rem !important;
+  }
+
+   /* Make hero content take full height */
+  #about .container,
+  #about .row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Prevent About Me from peeking */
+  #experience {
+    margin-top: 0 !important;
+  }
+
+  /* Wrap hero content */
+  #about .details {
+    margin-top: 0 !important;
+  }
+
+  #about .row {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  #about .cta {
+    margin-top: auto; /* pushes button to bottom */
+  }
+
+  /* Fix typed text height so layout doesn't jump */
+  #writing-text {
+    display: block;
+    font-size: 40px;
+    line-height: 1.6;
+    height: 6.25em;       /* 🔥 IMPORTANT */
+    overflow: hidden;  /* 🔥 IMPORTANT */
+  }
+
+  .typed-cursor {
+  display: none !important;
+  }
+
+  #writing-text::after {
+  content: none !important;
+  }
+
+  /* Avatar spacing fix */
+  #about img {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 1.5rem;
+  }
 }
-
-/* ===== MOBILE (portrait phones & tablets) ===== */
-@media (max-width: 768px) and (orientation: portrait) {
-
-  body {
-    font-size: 15px;
-  }
-
-  /* Stack sections vertically */
-  #about,
-  #experience,
-  #work,
-  #Arts,
-  #Projects,
-  #teaching {
-    padding: 4em 1.5em;
-  }
-
-  /* Kill hover-only effects */
-  .gallery a.gallery-item:hover,
-  .gallery2 a.gallery-item:hover,
-  .art-gallery a.gallery-item:hover {
-    transform: none;
-  }
-
-  /* Images should never overflow */
-  img,
-  video {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* ===== TABLET LANDSCAPE = DESKTOP MODE ===== */
-@media (min-width: 769px) and (orientation: landscape) {
-  /* No changes needed – desktop styles apply */
-}
-
-/* For mobile fixes viewports */

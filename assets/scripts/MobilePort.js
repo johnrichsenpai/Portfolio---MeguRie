@@ -39,7 +39,7 @@ function updateNav() {
   // Mobile: keep only first 2 items
   if (device.isMobile) {
     allItems.forEach((li, index) => {
-      if (index >= 2) {
+      if (index >= 3) {
         moreMenu.appendChild(li);
       }
     });
@@ -56,12 +56,13 @@ function updateNav() {
 
   allItems.forEach(li => {
     usedWidth += li.offsetWidth;
-    if (usedWidth > maxWidth && visibleCount >= 2) {
+    if (usedWidth > maxWidth && visibleCount >= 3) {
       moreMenu.appendChild(li);
     } else {
       visibleCount++;
     }
   });
+  
 }
 
 /* =====================
