@@ -2,17 +2,42 @@
 
 ********** Global Styles*******
 
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  outline: 1px solid red;
+}
+
 html {
-    background-color: #010101 /* or just remove this */
+  background: #010101;
+  overflow-x: clip; /* better than hidden */
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   background: #010101; /* IMPORTANT */
-  min-height: 100dvh;
-  overscroll-behavior-y: none;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: clip; /* better than hidden */
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.container, section, header, nav, main, footer {
+  max-width: 100%;
+}
+
+.section,
+.container,
+.hero-section,
+.top-navigation {
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
